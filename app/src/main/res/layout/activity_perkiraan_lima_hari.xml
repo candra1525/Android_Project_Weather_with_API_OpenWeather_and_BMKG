@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/rl_perkiraan"
+    tools:context=".Perkiraan_lima_hari">
+
+    <RelativeLayout
+        android:id="@+id/rl_ket_lokasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_backtoMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_bulat"
+            android:padding="6dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_back_24_wheater"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_keterangan"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="#417EA9"
+                android:text="Perkiraan Cuaca 5 Hari / 3 Jam"
+                android:layout_centerHorizontal="true"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_lokasi"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="#417EA9"
+                android:text="Palembang"
+                android:layout_centerHorizontal="true"
+                android:drawableStart="@drawable/ic_location"
+                android:layout_marginTop="3dp"
+                android:drawablePadding="1dp"
+                android:drawableTint="#417EA9"
+                android:textSize="16dp"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/rl_ket_lokasi"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ket_5_hari"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/list_cuaca"
+            tools:itemCount="50"
+            android:visibility="visible"
+
+            />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.mdp.Weather'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.mdp.Weather"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//  Animasi Splash Screen
+    implementation 'com.airbnb.android:lottie:5.2.0'
+//  Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+//  Volley
+    implementation 'com.android.volley:volley:1.2.1'
+//  GMS
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+//  Scroll to refresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+//  Zoom Layar
+    implementation 'com.otaliastudios:zoomlayout:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+
+}

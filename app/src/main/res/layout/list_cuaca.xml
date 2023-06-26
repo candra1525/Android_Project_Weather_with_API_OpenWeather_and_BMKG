@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_sisi_atas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:animateLayoutChanges="true"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/ll_tgl_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="28 Desember 2022, 06:00"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_bold"
+                    />
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_below="@id/tv_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hujan rintik-rintik"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_semibold"
+                    android:layout_marginTop="5dp"
+                    />
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_maxmin"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_max_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/quicksand_semibold"
+                    android:text="30 °C"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_min_temp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:text="20 °C"
+                    android:fontFamily="@font/quicksand_semibold"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_cloud_24"
+                android:layout_toStartOf="@id/ll_maxmin"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/iv_icon"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:text="24 °C"
+                />
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_sisi_bawah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:animateLayoutChanges="true"
+            >
+            <LinearLayout
+                android:id="@+id/ll_judul_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kemendungan"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Probabilitas Hujan"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kecepatam Angin"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arah Angin"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tekanan Laut"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tekanan Darat"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kelembaban"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jarak Pandang"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_content_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/tv_mendung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="80 %"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_hujan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50 %"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_wind_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. 35 Meter/Detik"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_arah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selatan"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_tekanan_laut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1024 hPa"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_tekanan_darat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="256 hPa"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_lembab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="80 %"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_pandang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 Km"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layout_marginVertical="3dp"
+                    />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

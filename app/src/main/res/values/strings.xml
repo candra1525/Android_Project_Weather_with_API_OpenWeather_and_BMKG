@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="text_powered">Powered by</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">Tentang\nCuaca</string>
+    <string name="aboutDev">Developer</string>
+    <string name="name_pak">Nama\t\t:\t\tPak Nur Rachmat, M. Kom</string>
+    <string name="status_pak">Dosen</string>
+    <string name="keterangan_cuaca">Sebagian Besar\nBerawan</string>
+    <string name="ttg_apl">\t\t\tCuaca merupakan salah satu aplikasi yang dirancang oleh 2 orang Mahasiswa asal Universitas Multi Data Palembang dan didampingi oleh Dosen Universitas Multi Data Palembang.\n
+        \t\t\tAplikasi Cuaca ini dibuat dengan tujuan untuk menampilkan data Perkiraan Cuaca pada daerah tertentu secara realtime dalam kurun waktu tertentu, serta aplikasi ini didesain dan disajikan dalam User Interface (UI) yang simple sehingga pengguna dapat dengan mudah memahami informasi yang diberikan.\n
+        \t\t\tData yang ditampilkan pada aplikasi Cuaca ini menggunakan <b>Application Programming Interface (API)</b> yang bersifat gratis (free) dari salah satu penyedia API cuaca yaitu <b>Open Weather</b>. Mengapa kami menggunakan Open Weather API ?\n
+        \t\t\tSebab API  ini sudah sangat terkenal dan bahkan telah banyak digunakan oleh developer-developer didunia seperti Google, Microsoft, dan berbagai vendor lainnya dalam menyajikan data cuaca.
+    </string>
+
+</resources>

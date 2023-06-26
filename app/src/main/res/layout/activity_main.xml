@@ -1,0 +1,1965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <!-- Atas-->
+    <RelativeLayout
+        android:id="@+id/rl_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_melengkung"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <!--Pencarian -->
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/background_pencarian_white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_pencarian_white"
+                android:drawableStart="@drawable/ic_location"
+                android:drawableEnd="@drawable/ic_search_24"
+                android:drawablePadding="8dp"
+                android:drawableTint="#417EA9"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center_vertical"
+                android:letterSpacing="-0.03"
+                android:lines="1"
+                android:padding="12dp"
+                android:text="Ketik untuk mencari ..."
+                android:textColor="#417EA9"
+                android:textColorHint="#417EA9"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bawah"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_atas"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <!--    Bawah-->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="285dp"
+            android:layout_below="@+id/ll_bawah">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_posisi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_kota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_location"
+                        android:drawablePadding="8dp"
+                        android:drawableTint="#417EA9"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textColor="#417EA9" />
+
+                </RelativeLayout>
+
+                <ScrollView
+                    android:id="@+id/sv_suhu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="170dp"
+                    android:layout_below="@+id/rl_posisi"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_suhu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="170dp"
+
+                        android:background="@drawable/background_with_shadow"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="20dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_content_kiri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:id="@+id/suhu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_tanggal_jam"
+                                    android:layout_width="140dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_semibold"
+                                    android:text="19 Desember, 15.06"
+                                    android:textColor="#417EA9" />
+
+                                <TextView
+                                    android:id="@+id/tv_temperature_sekarang"
+                                    android:layout_width="140dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="30°C"
+                                    android:textColor="#417EA9"
+                                    android:textSize="50sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_temperature_min_max"
+                                    android:layout_width="140dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="29°C - 35°C"
+                                    android:textColor="#417EA9"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lo_animated_temperature_hot"
+                                android:layout_width="50dp"
+                                android:layout_height="120dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toRightOf="@id/suhu"
+                                android:visibility="gone"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/temperature" />
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lo_animated_temperature_cold"
+                                android:layout_width="50dp"
+                                android:layout_height="120dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="20dp"
+                                android:layout_toRightOf="@id/suhu"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/cold_temperature" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_content_kanan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="10dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_icon_cuaca"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/ic_cloud_24" />
+
+                            <TextView
+                                android:id="@+id/tv_keterangan_icon_cuaca"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="@string/keterangan_cuaca"
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="5pt" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+
+                <RelativeLayout
+                    android:id="@+id/ll_detail_dan_sembunyikan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_suhu"
+                    android:layout_marginHorizontal="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_detail_hari_ini"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="Detail"
+                        android:textColor="#417EA9"
+                        android:textSize="7pt" />
+
+                    <TextView
+                        android:id="@+id/tv_sembunyikan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:drawableStart="@drawable/hide24"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center_vertical"
+                        android:text="Sembunyikan"
+                        android:textAlignment="textEnd"
+                        android:textColor="#417EA9"
+                        android:textSize="6pt"
+                        android:visibility="gone"
+                        app:drawableTint="#417EA9"
+                        tools:ignore="RtlCompat" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <ScrollView
+            android:id="@+id/sv_content_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/swipe_refresh"
+            android:layout_marginTop="5dp">
+            <!--            Icon-icon keterangan-->
+            <LinearLayout
+                android:id="@+id/ll_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/detailContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/ll_terbit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:animateLayoutChanges="true"
+                            >
+
+
+                            <ImageView
+                                android:id="@+id/iv_terbit"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/sunrise"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_terbit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Terbit"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_terbit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="05:27 WIB"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_tembenam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:id="@+id/iv_tembenam"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/sunset"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_tembenam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Terbenam"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_tembenam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="18.30 WIB"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_angin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:id="@+id/iv_angin"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/wind"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_angin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Angin"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_angin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="5 Km/Jam"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!-- Tempat Peletakan detail terbit, tembenam sm angin -->
+
+                    <!-- Terbit -->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_terbit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Terbit"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="90dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/sunrise_sunset"
+                                     />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+
+                                <TextView
+                                    android:id="@+id/tv_judul_waktu_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Matahari Terbit"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_waktu_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_waktu_terbit"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="05:27 WIB"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_latitude_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_waktu_terbit"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Latitude"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_latitude_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_latitude_terbit"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="-2.14252716"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_longitude_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_latitude_terbit"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Longitude"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_longitude_terbit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_longitude_terbit"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="104.082916182"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!--Tembenam-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_tembenam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Tembenam"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="90dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/sunrise_sunset"
+                                    />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:id="@+id/tv_judul_waktu_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Matahari Tembenam"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_waktu_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_waktu_tembenam"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="05:27 WIB"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_latitude_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_waktu_tembenam"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Latitude"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_latitude_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_latitude_tembenam"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="-2.14252716"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_longitude_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_latitude_tembenam"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Longitude"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_longitude_tembenam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_longitude_tembenam"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="104.082916182"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--Angin-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_angin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Angin"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_animated_angin"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_centerHorizontal="true"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/wind_speed2" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_kecepatan_angin"
+                                    android:layout_below="@id/lo_animated_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:textAlignment="center"
+                                    android:text="Kecepatan Angin"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_kecepatan_angin"
+                                    android:layout_below="@id/tv_judul_kecepatan_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="3.6 Km/Jam"
+                                    android:layout_centerHorizontal="true"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/iv_arah_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:padding="30dp"
+                                    app:lottie_rawRes="@raw/degree"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_arah_angin"
+                                    android:layout_below="@id/iv_arah_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Arah Angin"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_arah_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_arah_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="Selatan"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_degree_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_arah_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="360 °"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/iv_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    app:lottie_rawRes="@raw/wind_gust"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_hembusan_angin"
+                                    android:layout_below="@id/iv_hembusan_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:textAlignment="center"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Hembusan Angin"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_speed_hembusan_angin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="10km/jam"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--Baris 2-->
+                <LinearLayout
+                    android:id="@+id/detailContainer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/ll_tekanan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:animateLayoutChanges="true"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:id="@+id/iv_tekanan"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/pressure"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_tekanan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="   Tekanan   "
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_tekanan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="1004 hPa"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_kelembaban"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:animateLayoutChanges="true"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:id="@+id/iv_kelembaban"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/humidity"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_kelembaban"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Kelembaban"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_kelembaban"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="85%"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_polusi_udara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:animateLayoutChanges="true"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:id="@+id/iv_polusi_udara"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/air_polution"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_polusi_udara"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Polusi Udara"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_polusi_udara"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Baik"
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <!--Tempat Peletakan Detail Tekanan Kelembaban dan Polusi Udara -->
+
+<!--                    Tekanan-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_tekanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Tekanan"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_animated_tekanan"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_centerHorizontal="true"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/tekanan_animasi" />
+
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_tekanan_darat"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/tekanan_darat" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_tekanan_darat2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Tekanan Darat"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_tekanan_darat2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="1015 hPa"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_tekanan_laut"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/tekanan_laut"
+                                    android:foregroundTint="#417EA9"
+                                    />
+
+
+                                <TextView
+                                    android:id="@+id/tv_judul_tekanan_laut2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Tekanan laut"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_tekanan_laut2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="1015 hPa"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+<!--                    Kelembaban-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_kelembaban"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Kelembaban"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/kelembaban"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_kelembaban2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Kelembaban"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_kelembaban2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="90 %"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/kemendungan"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_kemendungan2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Kemendungan"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_kemendungan2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_hembusan_angin"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="90 %"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+<!--                    Polusi Udara-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_polusi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Polusi Udara"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="2"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_animated_polusi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/air_polution" />
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lt_emote_polusi_baik"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    app:lottie_rawRes="@raw/baik"
+                                    android:visibility="gone"
+                                    />
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lt_emote_polusi_sedang"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    app:lottie_rawRes="@raw/sedang"
+                                    android:visibility="gone"
+                                    />
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lt_emote_polusi_buruk"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    app:lottie_rawRes="@raw/buruk"
+                                    android:visibility="gone"
+                                    />
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lt_emote_polusi_sangat_baik"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    app:lottie_rawRes="@raw/sangat_baik"
+                                    android:visibility="gone"
+                                    />
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lt_emote_polusi_sangat_buruk"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_weight="1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    app:lottie_rawRes="@raw/sangat_buruk"
+                                    android:visibility="gone"
+                                    />
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+
+                                <TextView
+                                    android:id="@+id/tv_judul_co"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Carbon Monoxide (CO)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_co"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_co"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_co"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Nitrogen Monoxide (NO)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_no"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_no2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_no"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Nitrogen Dioxide (NO2)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_no2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_no2"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_co3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_no2"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Ozone (O3)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_o3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_co3"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_so2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_o3"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Sulphur Dioxide (SO2)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_so2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_so2"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_pm2_5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_so2"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Fine Particles Matter (PM2.5)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pm2_5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_pm2_5"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_pm10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_pm2_5"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Coarse Particulate Matter (PM10)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pm10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_pm10"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_judul_nh3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_pm10"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Ammonia (NH3)"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_nh3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_judul_nh3"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="201.94 μg/m3"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Baris 3-->
+                <LinearLayout
+                    android:id="@+id/detailContainer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/ll_jarak_pandang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:animateLayoutChanges="true"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:id="@+id/iv_jarak_pandang"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/orang"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_judul_jarak_pandang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Jarak\nPandang"
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_jarak_pandang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Baik"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_perkiraan_lima_hari"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/limahari"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Perkiraan"
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_perkiraan_lima_hari"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="5 Hari"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <!--GempaBumi-->
+                        <LinearLayout
+                            android:id="@+id/ll_gempa_bumi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/gempabumi"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="  Gempa  "
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_gempa_bumi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="  Bumi "
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+                    <!--Tempat Peletakan Detail Jarak Pandang-->
+                    <LinearLayout
+                        android:id="@+id/ll_detail_jarak_pandang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:animateLayoutChanges="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="Jarak Pandang"
+                            android:textColor="#417EA9"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lo_animated"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_centerHorizontal="true"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/person_run" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:id="@+id/tv_max"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="* Max : 10 km"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_kilometer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_max"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Kilometer"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_km"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_kilometer"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="1 km"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_hektometer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_km"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Hektometer"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_hm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_hektometer"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="10 hm"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_decameter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_hm"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Decameter"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_dam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_decameter"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="100 dam"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_meter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_dam"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Meter"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_m"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_meter"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="1000 m"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_decimeter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_m"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Decimeter"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_dm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_decimeter"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="10000 dm"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_centimeter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_dm"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Centimeter"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_cm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_centimeter"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="100000 cm"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_milimeter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_cm"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="Millimeter"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_mm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_milimeter"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="1000000 mm"
+                                    android:textColor="#417EA9"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--Baris 4 -->
+                <LinearLayout
+                    android:id="@+id/detailContainer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/ll_tentang"
+                            android:layout_width="0dp"
+                            android:layout_height="85dp"
+                            android:layout_weight="1"
+                            android:background="#3CF1EBF1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/info"
+                                app:tint="#417EA9" />
+
+                            <Space
+                                android:layout_width="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Tentang"
+                                android:textAlignment="center"
+                                android:textColor="#417EA9"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tv_tentang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="Aplikasi"
+                                android:textColor="#417EA9"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <!--    Progress Bar-->
+    <ProgressBar
+        android:id="@+id/pb_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
+
+</RelativeLayout>

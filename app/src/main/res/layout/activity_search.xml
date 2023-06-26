@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".SearchActivity">
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="15sp"
+        android:textColor="#417EA9"
+        android:hint="Ketik untuk mencari ..."
+        android:letterSpacing="-0.03"
+        android:background="@drawable/background_pencarian_white"
+        android:padding="12dp"
+        android:drawableStart="@drawable/ic_location"
+        android:textStyle="bold"
+        android:drawablePadding="8dp"
+        android:drawableTint="#417EA9"
+        />
+
+    <SearchView
+        android:id="@+id/sv_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#5395C5"
+        android:iconifiedByDefault="false"
+        android:fontFamily="@font/quicksand_bold">
+
+        <requestFocus />
+    </SearchView>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#5395C5"
+        android:layout_below="@+id/sv_search"
+        android:fontFamily="@font/quicksand_bold"
+        />
+
+
+
+</RelativeLayout>
