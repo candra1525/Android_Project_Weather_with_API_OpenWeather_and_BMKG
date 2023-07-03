@@ -38,7 +38,7 @@ public class Perkiraan_lima_hari extends AppCompatActivity {
     private WeatherAdapter weatherAdapter;
     private RecyclerView rvWeather;
     private DecimalFormat df = new DecimalFormat("#.##");
-    private String apiKey = "3b88d1c2c59b0a0b7e4a98660010c9c4", lang = "id";
+    private String apiKey = "YOUR API KEY", lang = "id";
 
     @SuppressLint("MissingInflatedId")
     @Override
