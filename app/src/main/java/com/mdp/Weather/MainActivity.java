@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout llTerbit, llTembenam, llAngin, llTekanan, llKelembaban, llPolusiUdara, llTentang, llSearch, llPerkiraan5Hari, llJarakPandang, llGempaBumi;
     private TextView tvTerbit, tvTembenam, tvAngin, tvTekanan, tvKelembaban, tvPolusiUdara, tvJarakPandang;
     private String lang = "id";
-    private String apiKey = "3b88d1c2c59b0a0b7e4a98660010c9c4";
+    private String apiKey = "YOUR API KEY";
     private double longitude;
     private double latitude;
     private String city = "";
